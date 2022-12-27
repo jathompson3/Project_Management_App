@@ -1,0 +1,52 @@
+:root{
+    --highLightedText: rgb(52, 83, 127);
+    --defaultTextColor: white;
+    --backgroundColor: rgb(223, 223, 223);
+}
+
+body{
+    font-family:Lato, sans-serif;
+    margin:0;
+    background-color:var(--backgroundColor);
+}
+#navbar{
+    width:100vw;
+    background-color: rgb(168, 168, 168);
+    font-weight: bold;
+}
+ul{
+    list-style:none;
+     margin:0;
+     display:flex;
+     justify-content: flex-end;
+     align-items: center;
+     padding: 1em;
+  }
+  li a {
+    text-decoration:none;
+    color:var(--defaultTextColor);
+    padding-right:3em;
+    position: relative;
+    transition:all ease-in-out 250ms;
+  }
+  li a::after{
+    content:'';
+    position:absolute;
+    display:block;
+    height:0.4em;
+    width:0px;
+    background-color:var(--highLightedText);
+    bottom: -1em;
+    transition:all ease-in-out 250ms;
+  }
+li a:hover::after{
+    width: 60px;
+}
+li a:hover{
+    color:var(--blue);
+}
+
+  li:first-child{
+    margin-right:auto;
+    margin-left:1em;
+  }

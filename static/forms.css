@@ -1,0 +1,117 @@
+:root{
+  --BackgroundColor: #00a1ff;
+  --ForegroundColor: #00ff8f;
+  --BackgroundColorTint: #7ccfff;
+  --ForegroundColorTint: #7dffc7;
+  --TextColor: black;
+  --BehindImageColor: gray;
+  --BoxShadow: 0px 2px 10px black;
+}
+@font-face {
+  src: url(../static/fonts/Baloo-Regular.ttf);
+  font-family: Baloo-Regular;
+}
+*{
+  margin:0;
+  padding:0;
+  font-family: Baloo-Regular, sans-serif;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: var(--TextColor);
+}
+img{
+  cursor: pointer;
+}
+
+
+form {
+    width: 100%;
+  }
+  
+  .form-field {
+    position: relative;
+  }
+  label {
+    font-size: .9em;
+    color: var(--TextColor);
+    margin-bottom: 3px;
+    display: block;
+    font-weight: 300;
+  }
+  
+  input, textarea{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    font-weight: 100;
+    color: var(--TextColor);
+    font-size: .9em;
+  
+  }
+  
+  input[type="text"]::placeholder {
+    color: #d4d9e3;
+  }
+  
+  input[type="text"]:hover,
+  input[type="password"]:hover,
+  textarea:hover,
+  select:hover {
+    background: lightyellow;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+
+  textarea:focus {
+    background: white;
+    box-shadow: unset;
+  }
+  
+  input[type="submit"] {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to left, var(--BackgroundColorTint), var(--ForegroundColorTint));
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  }
+  
+  input[type="submit"]:hover {
+    cursor: pointer;
+    font-weight: bolder;
+  }
+  
+  .success-wrapper {
+    background: white;
+    width: 350px;
+    box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
+    padding: 50px;
+  }
+  
+  .errors {
+    list-style: none;
+    margin: 10px 0;
+    position: absolute;
+    z-index: 10;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    background: #fae7ea;
+    padding: 9px 15px;
+    border-radius: 3px;
+    border: 1px solid #e1c5c5;
+    color: #8d7575;
+    width: 182px;
+    text-align: center;
+    height: fit-content;
+    margin: auto;
+  }

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h3>Edit Task</h3>
+    {% if task %}
+        <form action="{{url_for('editTask', task_id = task.task_id)}}" method="post">
+    {% else %} 
+        <form action="{{url_for('newTask', project_id = project_id)}}" method="post">
+    {% endif %} 
+
+    <p><label>Title </label></p><p>  <input type="text" name="name" value = "{% if task %}{{task.name}}{% endif %}"/></p>
+    <p><label>Description </label></p><p>  <input type="text" name="description" value = "{% if task %}{{task.description}}{% endif %}"/></p>
+    <p><label>Due Date</label></p><p>  <input type="date" name="due_date" value = "{% if task %}{{task.due_date}}{% endif %}"/></p> 
+                    
+    <br>
+    {% if task %}
+        <input type="submit" value="Update Task" class="w3-button w3-round w3-purple"/>
+    {% else %} 
+        <input type="submit" value="Add Task" class="w3-button w3-round w3-purple"/> 
+    {% endif %}                
+    </p>
+</form>
+{% endblock %}

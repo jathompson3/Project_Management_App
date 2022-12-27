@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+</head>
+    <body>
+
+        <div class="animation-area">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="login()" >Log In</button>
+                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                </div>
+                    <form id="login" method="POST" action="/login" class="input-group">
+                        <div class="input-field">{{ form.username.label }} {{ form.username }}
+                   
+                        </div>
+                        <div class="input-field">{{ form.password.label }} {{ form.password }}
+                            {% if form.password.errors %}
+                            <ul class="errors">
+                                {% for error in form.password.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {{ form.submit }}
+                    </form>
+            </div>
+            <ul class="box-area">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <script>
+
+            function register(){
+                window.location.href = "/register";
+            }
+
+            function login(){
+                window.location.href = "/login";
+            }
+        </script>
+        
+        
+    </body>
+</html>
+

@@ -1,0 +1,20 @@
+<div id="noteModal" class="w3-modal">
+    <div class="w3-modal-content">
+        <header class="w3-container w3-teal">
+            <span onclick="document.getElementById('noteModal').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+            <h2>Add Note</h2>
+          </header>
+      <div class="w3-container">
+   
+        <form method="POST" action="{{url_for('addNote', project_id = project.project_id)}}">
+            <div class="input-field">{{ noteform.note.label }}<br>{{ noteform.note }}</div>
+    
+            {{ noteform.submit }}
+        </form>
+      </div>
+      <footer class="w3-container w3-teal">
+        <br>
+      </footer>
+    </div>
+  </div>

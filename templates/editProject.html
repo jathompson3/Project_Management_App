@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h3>Edit Project</h3>
+    <div class="w3-half">
+            {% if project %}
+                <form action="{{url_for('editProject', project_id = project.project_id)}}" method="post" enctype = "multipart/form-data">
+            {% else %} 
+                <form action="{{url_for('editProject',project_id = 0)}}" method="post" enctype = "multipart/form-data">
+            {% endif %} 
+
+            <p><label>Title </label></p><p> <input class="w3-input w3-border w3-round" type="text" name="name" value = "{% if project %}{{project.name}}{% endif %}"/></p>
+            
+            <p><label>Description </label></p><p>  <input class="w3-input w3-border w3-round" type="text" name="description" value = "{% if project %}{{project.description}}{% endif %}"/></p>
+            <p><label>Start Date</label></p><p>  <input class="w3-input w3-border w3-round" type="date" name="start_date" value = "{% if project %}{{project.start_date}}{% endif %}"/></p> 
+            <p><label>Due Date</label></p><p>  <input class="w3-input w3-border w3-round" type="date" name="due_date" value = "{% if project %}{{project.due_date}}{% endif %}"/></p> 
+            
+            <p><input class="w3-input w3-border w3-round" type = "file" name = "file" /></p>
+            <br>
+                             
+            <br>
+            {% if project %}
+                <input type="submit" value="Update Project" class="w3-button w3-round w3-purple"/>
+            {% else %} 
+                <input type="submit" value="Add Project" class="w3-button w3-round w3-purple"/> 
+            {% endif %}                
+            </p>
+        </form>
+    </div>
+
+{% endblock %}

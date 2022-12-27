@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Project App">
+        <title>KTJR APP</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='w3.css') }}">
+    </head>
+    <body>
+        <nav class="Header-Template">
+            <div class="header-left">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+            </div>
+
+            <aside>
+                {% include "userSideBar.html" %}
+            </aside>
+            
+            <div class="header-right">
+                <img src="{{ url_for('static', filename='images/user.png') }}" class="user" onclick="toggleMenu()">
+            </div>
+
+
+        </nav>
+  
+        <div class="main-div">
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+        </div>
+
+
+        <aside>
+            {% include "sidebar.html" %}
+        </aside>
+
+        <aside>
+            {% include "background.html" %}
+        </aside>
+
+        <script>
+            let subMenu= document.getElementById("subMenu");
+            function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+            }
+        </script>
+        
+    </body>
+</html>

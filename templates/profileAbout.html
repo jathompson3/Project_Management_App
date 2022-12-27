@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="UserInfo">
+    <div class="UserAbout">
+        <div class="project-info">   
+                    <img src="../static/images/logo.png" class="thumbnail">
+                    <p></p> 
+                    <p><label>Username: {{user.username}}</label></p>
+                    <p><label>First Name: {{user.fname}}</label></p>
+                    <p><label>Last Name: {{user.lname}}</label></p>
+                    <p><label>Email: {{user.email}}</label></p>
+                <a href="{{ url_for('profileEdit') }}" class="w3-button w3-round w3-purple">Edit</a>
+        </div>
+    </div>
+</div>
+    
+    
+
+{% endblock %}

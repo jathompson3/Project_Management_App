@@ -1,0 +1,15 @@
+<div class="w3-threequarter">
+    <h1>Progress time remaining.</h1>
+    {% for p in projects %}
+    <div class="w3-panel w3-border-top ">
+        <h3>{{p.name}}</h3> 
+        <div>Start Date: {{p.start_date}}</div> <div class="w3-right-align">Due Date: {{p.due_date}}</div>
+
+            
+            <div class="w3-light-grey w3-round ">
+                <div class="w3-container w3-round w3-blue" style="width:{{p.percent}}%">{{p.percent}}%</div>
+            </div>
+        
+    </div>    
+    {% endfor %}
+</div>

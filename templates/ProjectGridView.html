@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main %}
+    <div class="list-container">
+        {% for p in projects %}
+        <div class="project-list">
+            <div class="Header-Template">
+                <div class="project-info">
+                    <a href="{{url_for('get_project', project_id = p.project_id)}}">   
+                        <p>Project Title</p>
+                        <h3>{{p.name}}</h3> 
+                        {% if  p.imagefile %}              
+                            <img src="{{p.imagefile}}" class="thumbnail">
+                        {% else %}
+                            <img src="../static/images/logo.png" class="thumbnail">
+                        {% endif %}          
+                        <p>Due date {{p.due_date}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

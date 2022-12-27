@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="UserInfo">
+    <div class="UserAbout">
+        <div class="project-info">   
+                                <h3>Edit Account</h3>
+                                <divc class="w3-half w3-half-edit-account">
+                                <form action="{{url_for('profileEdit')}}" method="post" enctype = "multipart/form-data">
+                                <p><label>Username: {{user.username}}</label></p><p> <input class="w3-input w3-border w3-round" type="text" name="username" value = "{% if user %}{{user.username}}{% endif %}"/></p>
+                                <p><label>First Name: {{user.fname}}</label></p><p> <input class="w3-input w3-border w3-round kai-w-3-label-edit" type="text" name="fname" value = "{% if user %}{{user.fname}}{% endif %}"/></p>
+                                <p><label>Last Name: {{user.lname}}</label></p><p> <input class="w3-input w3-border w3-round" type="text" name="lname" value = "{% if user %}{{user.lname}}{% endif %}"/></p>
+                                <p><label>Email: {{user.email}}</label></p><p> <input class="w3-input w3-border w3-round" type="text" name="email" value = "{% if user %}{{user.email}}{% endif %}"/></p>
+                                <p><label>Password:</label></p><p> <input class="w3-input w3-border w3-round" type="text" name="password" value = ""/></p>
+
+                                <!--<p><input class="w3-input w3-border w3-round" type = "file" name = "file" /></p>-->
+                                <br>
+                                                
+                                <br>
+                                <input type="submit" value="Update Account" class="w3-button w3-round w3-purple"/>                
+                                </p>
+                            </form>
+                        </div>
+        </div>
+    </div>
+</div>
+    
+    
+
+{% endblock %}

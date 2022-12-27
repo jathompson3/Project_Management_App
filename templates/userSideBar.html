@@ -1,0 +1,31 @@
+<!--Drop Down Menu-->
+<div class="sub-menu-wrap" id="subMenu">
+    <div class="sub-menu">
+        <div class="user-info">
+            <img src="../static/images/user.png" alt="">
+            <h3>{% if user %}{{user.username}}{% endif %}</h3>
+        </div>
+        <hr>
+
+        <a href="{{ url_for('about')  }}" class="sub-menu-link">
+            <img src="../static/images/user.png" alt="">
+            <p>View Profile</p>
+            <span>></span>
+        </a>
+
+        <a href="{{ url_for('profileEdit')  }}" class="sub-menu-link">
+            <img src="../static/images/edit.png" alt="">
+            <p>Edit Profile</p>
+            <span>></span>
+        </a>
+
+        <a href="{{ url_for('logout')  }}" class="sub-menu-link">
+            <img src="../static/images/logout.png" alt="">
+            <p>Logout</p>
+            <span>></span>
+        </a>
+
+
+    </div>
+</div>
+<!--End Drop Down Menu-->

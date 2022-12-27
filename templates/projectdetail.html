@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block main %}
+<h2>Project Details</h2>
+<table class="pdetail-table w3-table w3-large">
+  <thead>
+    <th>Name</th><th>Description</th><th>Start Date</th><th>Due Date</th><th>Created By</th><th></th>
+  </thead>
+  <tr>
+    <td>{{project.name}}</td><td>{{project.description}}</td><td>{{project.start_date}}</td><td>{{project.due_date}}</td><td>{{project.creator.username}}</td>
+    <td><a href="{{url_for('editProject', project_id = project.project_id)}}" class="w3-button w3-round w3-purple">Edit</a></td>
+    <td><a href="{{url_for('deleteProject', project_id = project.project_id)}}" class="w3-button w3-round w3-purple">Delete</a></td>
+  </tr>
+</table>
+
+<h3>Project Notes</h3>
+<table class="pdetail-table w3-table w3-bordered">
+  <thead>
+    <th>User</th><th>Note</th><th>Date</th><th>Report Flags</th><th></th><th></th>
+  </thead>
+  {% for n in project.notes %}
+    <tr>
+      <td>{{n.creator.username}}</td><td>{{n.note}}</td><td>{{n.create_date}}</td> <td>{{n.flag}}</td>
+      <td><a href="{{url_for('deleteNote', note_id = n.note_id)}}" class="w3-button w3-round w3-purple">Delete</a></td>
+      <td><a href="{{url_for('flagNote', note_id = n.note_id)}}" onclick="return confirm('Are you sure you wish to report this note?');" class="w3-button w3-round w3-purple">Report</a></td>
+    </tr>
+  {% endfor %}
+</table> 
+
+<button onclick="document.getElementById('noteModal').style.display='block'"
+class="w3-button w3-round w3-purple">Add Project Note</button>
+<br>
+
+<h3>Tasks</h3>
+<table class="pdetail-table w3-table w3-bordered">
+  <thead>
+    <th>Name</th><th>Description</th><th>Due Date</th><th>Assigned to</th><th></th>
+  </thead>
+  {% for t in project.tasks %}
+    <tr>
+      <td>{{t.name}}</td><td>{{t.description}}</td><td>{{t.due_date}}</td><td>{{t.assigned.username}}</td>
+      <td><a href="{{url_for('editTask', task_id = t.task_id)}}" class="w3-button w3-round w3-purple">Edit</a></td>
+      <td><a href="{{url_for('deleteTask', task_id = t.task_id)}}" class="w3-button w3-round w3-purple">Delete</a></td>
+    </tr>
+  {% endfor %}
+</table> 
+
+<a href="{{url_for('newTask',project_id = project.project_id)}}" class="w3-button w3-round w3-purple">New Task</a>
+<button onclick="document.getElementById('noteModal').style.display='block'"
+class="w3-button w3-round w3-purple">Add Project Note</button>
+
+{% include "notesModal.html" %}
+  
+{% endblock %}
+
